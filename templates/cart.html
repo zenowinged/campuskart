@@ -22,7 +22,7 @@
             <td>{{ item.product.name }}</td>
             <td>Rs. {{ item.product.price }}</td>
             <td>
-                <button class="qty-btn" onclick="changeQty({{ item.product.id }}, {{ item.qty }}, 1)">-</button>
+                <button class="qty-btn" onclick="changeQty({{ item.product.id }}, {{ item.qty }}, -1)">-</button>
                 <span>{{ item.qty }}</span>
                 <button class="qty-btn" onclick="changeQty({{ item.product.id }}, {{ item.qty }}, 1)">+</button>
             </td>
