@@ -222,7 +222,7 @@ body {
     border: 1px solid #ccc;
     background: white;
     cursor: pointer;
-    border-radius: 40%;
+    border-radius: 50%;
 }
 
 .remove-link {
