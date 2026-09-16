@@ -15,6 +15,9 @@ function bumpCartBadge() {
     const badge = document.querySelector(".cart-badg");
     if (!badge) return;
     let count = parseInt(badge.textContent);
+    if (isNaN(count)) {
+        count = 0;
+    }
     count = count + 1;
     badge.textContent = count;
 }
