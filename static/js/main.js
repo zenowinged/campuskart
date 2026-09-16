@@ -28,7 +28,7 @@ function validateContactForm() {
             alert("Name is required");
         }
 
-        if (email.length < 3) {
+        if (email.length < 3 && email!='@') {
             e.preventDefault();
             alert("Please enter a valid email");
         }
