@@ -39,8 +39,7 @@
 
 <div class="reviews-section">
     <h2>Reviews</h2>
-         "Based on 4.2 reviews" (a rating, not a count) instead of the actual number of reviews below -->
-    <p class="review-count">Based on {{ product.rating }} reviews</p>
+    <p class="review-count">Based on {{ reviews|length }} reviews</p>
     {% if reviews %}
     <ul class="review-list">
         {% for review in reviews %}
