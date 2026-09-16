@@ -208,6 +208,7 @@ body {
     background: white;
     border-radius: 8px;
     overflow: hidden;
+    border-collapse: collapse;
 }
 
 .cart-table th, .cart-table td {
