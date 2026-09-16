@@ -114,7 +114,7 @@ function setupQuantityStepper() {
     });
 
     decrease.addEventListener("click", function () {
-        input.value = parseInt(input.value) + 1;
+        input.value = parseInt(input.value) - 1;
     });
 }
 
