@@ -94,7 +94,7 @@ def index():
 
     products = PRODUCTS
     if category:
-        products = [p for p in products if p["category"] == category]
+        products = [p for p in products if p["category"].lower() == category.lower()]
 
     if sort_by == "price":
         products = sorted(products, key=lambda p: p["price"], reverse=True)
