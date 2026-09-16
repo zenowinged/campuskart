@@ -16,7 +16,7 @@ MAX_CART_ITEMS = 10
 
 def get_product_by_id(product_id):
     for product in PRODUCTS:
-        if PRODUCTS.index(product) == product_id:
+        if product["id"] == product_id:
             return product
     return None
 
