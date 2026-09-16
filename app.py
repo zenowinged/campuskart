@@ -234,7 +234,7 @@ def clear_cart():
 def checkout():
     cart = get_cart()
     subtotal = cart_total(cart)
-    tax = subtotal * TAX_RATE * 100
+    tax = subtotal * TAX_RATE
 
     shipping = 0 if subtotal > FREE_SHIPPING_THRESHOLD else SHIPPING_FEE
 
