@@ -27,7 +27,7 @@
             <div class="product-image-wrap">
                 <img src="{{ url_for('static', filename='img/' + product.image) }}" alt="{{ product.name }}" class="product-image">
             </div>
-            <h3 class="product-title">{{ product.title }}</h3>
+            <h3 class="product-title">{{ product.name }}</h3>
         </a>
         <p class="product-price">
             Rs. {{ product.price }}
