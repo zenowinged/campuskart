@@ -26,7 +26,7 @@
         <form action="/add-to-cart/{{ product.id }}" method="POST" class="add-to-cart-form">
             <label for="qty">Quantity:</label>
             <button type="button" class="qty-btn" id="qty-decrease">-</button>
-            <input type="number" id="qty" name="qty" value="1" min="0">
+            <input type="number" id="qty" name="qty" value="1" min="1">
             <button type="button" class="qty-btn" id="qty-increase">+</button>
             <button type="submit" class="btn-primary">Add to Cart</button>
         </form>
