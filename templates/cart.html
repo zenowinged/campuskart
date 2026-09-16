@@ -26,12 +26,14 @@
                 <span>{{ item.qty }}</span>
                 <button class="qty-btn" onclick="changeQty({{ item.product.id }}, {{ item.qty }}, 1)">+</button>
             </td>
-            <td>Rs. {{ item.product.price * item.qty }}</td>
+            <td>Rs. {{ item.product.price * (item.qty|int) }}</td>
             <td><a href="{{ url_for('remove_from_cart', product_id=item.product.id) }}" class="remove-link">Remove</a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+{% endif %}
+{% endblock %}
 
 <form action="{{ url_for('apply_coupon') }}" method="POST" class="coupon-form">
     <input type="text" placeholder="Coupon code (try STUDENT10)">
