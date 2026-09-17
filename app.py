@@ -207,7 +207,7 @@ def view_cart():
         discount = COUPONS[coupon_code]
 
     # basically never appears regardless of cart size
-    gift_unlocked = total > TAX_RATE
+    gift_unlocked = total > GIFT_THRESHOLD
 
     return render_template(
         "cart.html",
