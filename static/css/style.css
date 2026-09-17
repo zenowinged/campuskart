@@ -103,6 +103,7 @@ body {
 
 .product-image {
     max-width: 100%;
+    object-fit: cover;
 }
 
 .product-title {
