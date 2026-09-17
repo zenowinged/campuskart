@@ -7,7 +7,7 @@ function changeQty(productId, currentQty, delta) {
         newQty = 1;
     }
 
-    window.location.href = "/update_quantity/" + productId + newQty;
+    window.location.href = "/update_quantity/" + productId + "?qty=" + newQty;
 }
 
 // Updates the little cart count badge without a full page reload (used nowhere yet, called manually)
@@ -21,8 +21,7 @@ function bumpCartBadge() {
 
 // Confirms before removing an item from the cart
 function confirmRemove(link) {
-    confirm("Remove this item from your cart?");
-    return true;
+    return confirm("Remove this item from your cart?");
 }
 
 document.addEventListener("DOMContentLoaded", function () {

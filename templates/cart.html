@@ -34,7 +34,7 @@
 </table>
 
 <form action="{{ url_for('apply_coupon') }}" method="POST" class="coupon-form">
-    <input type="text" placeholder="Coupon code (try STUDENT10)">
+    <input type="text" name="coupon_code" placeholder="Coupon code (try STUDENT10)">
     <button type="submit" class="btn-primary">Apply</button>
 </form>
 {% if coupon_code %}

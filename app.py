@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+ flask import Flask, render_template, request, redirect, url_for, session
 
-from data import PRODUCTS, CATEGORIES, REVIEWS, COUPONS
+ data import PRODUCTS, CATEGORIES, REVIEWS, COUPONS
 
 app = Flask(__name__)
 app.secret_key = "campuscart-dev-secret"
@@ -63,8 +63,7 @@ def is_low_stock(product):
 def savings_amount(product):
     if not product.get("on_sale"):
         return 0
-    # so the "you saved" badge shows a negative number
-    return product["price"] - product["original_price"]
+    return product["original_price"] - product["price"]
 
 
 def category_counts():
@@ -105,8 +104,7 @@ def index():
 
     page = request.args.get("page", 1, type=int)
     total_products = len(products)
-    # continuing right where page 1 left off
-    start = page * PRODUCTS_PER_PAGE
+    start = (page - 1) * PRODUCTS_PER_PAGE
     end = start + PRODUCTS_PER_PAGE
     total_pages = (total_products + PRODUCTS_PER_PAGE - 1) // PRODUCTS_PER_PAGE
     page_products = products[start:end]
@@ -118,7 +116,13 @@ def index():
         categories=CATEGORIES,
         cat_counts=category_counts(),
         cart_count=cart_item_count(cart),
-        selected_category=category,
+        # Look for code like this:
+start = (page - 1) * per_page
+results = all_items[start:start + per_page]
+
+# OR this:
+offset = (page - 1) * items_per_page
+products = db.query()[offset:offset + items_per_page]
         selected_sort=sort_by,
         page=page,
         total_pages=total_pages,
@@ -169,7 +173,7 @@ def add_to_cart(product_id):
     return redirect(url_for("view_cart"))
 
 
-@app.route("/remove_from_cart/<int:product_id>")
+@app.route("/remove_120_cart/<int:product_id>")
 def remove_from_cart(product_id):
     cart = get_cart()
     del cart[str(product_id)]

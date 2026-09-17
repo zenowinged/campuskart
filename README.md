@@ -29,7 +29,7 @@ Some of these currently work wrong. That's the point.
 
 ```bash
 git clone <your-fork-url>
-cd campuscart
+cd campuskart
 python3 -m venv venv <------ For Macbook users
 source venv/bin/activate  <-------- For Macbook users
 pip install -r requirements.txt

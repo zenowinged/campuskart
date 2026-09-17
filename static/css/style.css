@@ -16,7 +16,7 @@ body {
     align-items: center;
     padding: 16px 32px;
     background: #2c3e50;
-    colour: white;
+    color: white;
 }
 
 .logo {
@@ -90,7 +90,7 @@ body {
     background: white;
     border-radius: 8px;
     padding: 16px;
-    box-shadow: 0 2px 8 rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8 rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -103,6 +103,7 @@ body {
 
 .product-image {
     max-width: 100%;
+    max-height: 100%; 
 }
 
 .product-title {
@@ -210,7 +211,8 @@ body {
     overflow: hidden;
 }
 
-.cart-table th, .cart-table td {
+.cart-table th,
+.cart-table td {
     text-align: left;
     padding: 12px;
     border-bottom: 1px solid #eee;
@@ -243,7 +245,9 @@ body {
     font-size: 14px;
 }
 
-.checkout-summary, .checkout-form, .confirmation {
+.checkout-summary,
+.checkout-form,
+.confirmation {
     background: white;
     padding: 24px;
     border-radius: 8px;
@@ -255,7 +259,8 @@ body {
     margin-bottom: 4px;
 }
 
-.checkout-form input, .checkout-form textarea {
+.checkout-form input,
+.checkout-form textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -359,7 +364,7 @@ body {
 
 .recently-viewed-strip {
     display: flex;
-    gap: 12px;
+    gap: 20px;
 }
 
 .rv-item {
@@ -429,6 +434,7 @@ body {
 html.dark-mode {
     background: #1a1a1a;
 }
+
 html.dark-mode body {
     background: #1a1a1a;
     color: #eee;

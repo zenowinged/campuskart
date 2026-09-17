@@ -43,7 +43,7 @@ function setupWishlistButton() {
         btn.classList.add("clicked");
         setTimeout(function () {
             btn.classList.remove("clicked");
-        }, "1000");
+        }, 1000);
     });
 }
 
@@ -56,6 +56,7 @@ function setupLiveFilter() {
         const cards = document.querySelectorAll(".product-card");
         cards.forEach(function (card) {
             const title = card.querySelector(".product-title");
+            if (!title) return;
             const match = title.textContent.toLowerCase().includes(term);
             card.style.display = match ? "" : "none";
         });
@@ -69,7 +70,7 @@ function setupNavToggle() {
     if (!toggle || !nav) return;
     toggle.addEventListener("click", function () {
         // so the CSS that's supposed to reveal the menu never actually applies to the menu
-        toggle.classList.toggle("nav-open");
+        nav.classList.toggle("nav-open");
     });
 }
 
@@ -79,7 +80,7 @@ function setupDarkModeToggle() {
     if (!toggle) return;
     toggle.addEventListener("click", function () {
         // the <html> element, so clicking this button visibly does nothing
-        document.body.classList.toggle("dark-mode");
+        document.documentElement.classList.toggle("dark-mode");
     });
 }
 
@@ -90,7 +91,7 @@ function setupBackToTop() {
 
     window.addEventListener("scroll", function () {
         // while ABOVE it), so the button is visible at the top of the page and disappears once you scroll
-        if (window.scrollY < 300) {
+        if (window.scrollY >= 300) {
             btn.classList.add("visible");
         } else {
             btn.classList.remove("visible");
