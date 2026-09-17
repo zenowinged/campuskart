@@ -10,7 +10,7 @@
         <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
         <a href="{{ url_for('index') }}" class="logo">CampusCart</a>
         <form action="{{ url_for('search') }}" method="get" class="search-form">
-            <input type="text" name="query" placeholder="Search products...">
+            <input type="text" name="q" placeholder="Search products...">
             <button type="submit">Search</button>
         </form>
         <nav id="main-nav">
