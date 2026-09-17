@@ -4,7 +4,7 @@
 <h1>Results for: {{ query }}</h1>
 
 {% if results|length == 0 %}
-<p class="empty-state">No products found. Try a different category.</p>
+<p class="empty-state">No products found. Try a different search term.</p>
 {% else %}
 <div class="product-grid">
     {% for product in results %}
