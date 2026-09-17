@@ -177,7 +177,7 @@ def remove_from_cart(product_id):
     return redirect(url_for("view_cart"))
 
 
-@app.route("/update_quantity/<int:product_id>")
+@app.route("/update_quantity/<int:product_id>", methods=["GET", "POST"])
 def update_quantity(product_id):
     cart = get_cart()
     new_qty = request.args.get("qty", 1, type=int)
