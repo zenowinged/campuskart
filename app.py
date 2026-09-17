@@ -301,8 +301,7 @@ def contact():
 def newsletter():
     email = request.form.get("email", "")
     valid = "@" in email and "." in email
-    # the email was invalid or empty
-    success = True
+    success = valid
     return render_template("newsletter_result.html", success=success, valid=valid)
 
 
