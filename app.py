@@ -286,7 +286,7 @@ def contact():
         email = request.form.get("email", "")
         message = request.form.get("message", "")
 
-        if email.find("@"):
+        if "@" not in email:
             error = "Please enter a valid email address."
         elif len(name) == 0 or len(message) == 0:
             error = "Name and message are required."
