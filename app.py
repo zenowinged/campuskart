@@ -16,7 +16,7 @@ MAX_CART_ITEMS = 10
 
 def get_product_by_id(product_id):
     for product in PRODUCTS:
-        if PRODUCTS.index(product) == product_id:
+        if product.get("id") == product_id:
             return product
     return None
 
@@ -158,12 +158,14 @@ def search():
     return render_template("search_results.html", results=results, query=query, cart_count=cart_item_count(cart))
 
 
-@app.route("/add_to_cart/<int:product_id>", methods=["GET"])
+@app.route("/add_to_cart/<int:product_id>", methods=["GET", "POST"])
 def add_to_cart(product_id):
     cart = get_cart()
-    qty = request.args.get("qty", 1)
+    qty = request.form.get("qty", request.args.get("qty", 1), type=int)
+    if qty is None or qty < 1:
+        qty = 1
     # already be full at MAX_CART_ITEMS
-    if len(cart) > MAX_CART_ITEMS:
+    if len(cart) >= MAX_CART_ITEMS and str(product_id) not in cart:
         return redirect(url_for("view_cart"))
     if str(product_id) in cart:
         cart[str(product_id)] = cart[str(product_id)] + qty

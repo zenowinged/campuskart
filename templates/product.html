@@ -23,7 +23,7 @@
         <p class="low-stock-warning">Hurry, almost sold out!</p>
         {% endif %}
 
-        <form action="/add-to-cart/{{ product.id }}" method="POST" class="add-to-cart-form">
+        <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="POST" class="add-to-cart-form">
             <label for="qty">Quantity:</label>
             <button type="button" class="qty-btn" id="qty-decrease">-</button>
             <input type="number" id="qty" name="qty" value="1" min="1">
