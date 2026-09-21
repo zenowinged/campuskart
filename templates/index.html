@@ -15,7 +15,7 @@
 <select id="sort" onchange="location.href='{{ url_for('index') }}?sort=' + this.value">
 <option value="name" {% if selected_sort == 'name' %}selected{% endif %}>Name</option>
 <option value="price" {% if selected_sort == 'price' %}selected{% endif %}>Price</option>
-<option value="ratingg" {% if selected_sort == 'rating' %}selected{% endif %}>Rating</option>
+<option value="rating" {% if selected_sort == 'rating' %}selected{% endif %}>Rating</option>
 </select>
 </div>
     </div>
