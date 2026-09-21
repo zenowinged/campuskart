@@ -39,7 +39,7 @@ def cart_total(cart):
 
 
 def cart_item_count(cart):
-    return len(cart)
+    return sum(cart.values())
 
 
 def average_rating(product_id):
