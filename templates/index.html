@@ -5,7 +5,10 @@
 <div class="category-list">
 <a href="{{ url_for('index') }}" class="{% if not selected_category %}active{% endif %}">All</a>
         {% for cat in categories %}
-<a href="{{ url_for('index', category=cat) }}" class="{% if selected_category == cat.lower() %}active{% endif %}">
+
+        <a href="{{ url_for('index', category=cat) }}"
+            class="{% if selected_category == cat.lower() %}active{% endif %}">
+
             {{ cat }} <span class="cat-count">({{ cat_counts[cat] }})</span>
 </a>
         {% endfor %}
@@ -22,23 +25,28 @@
     <div class="sort-options">
         <label for="sort">Sort by:</label>
         <select id="sort" onchange="location.href='{{ url_for('index') }}?sort=' + this.value">
-            <option value="name" {% if selected_sort == 'name' %}selected{% endif %}>Name</option>
-            <option value="price" {% if selected_sort == 'price' %}selected{% endif %}>Price</option>
-            <option value="rating" {% if selected_sort == 'rating' %}selected{% endif %}>Rating</option>
+
+            <option value="name" {% if selected_sort=='name' %}selected{% endif %}>Name</option>
+            <option value="price" {% if selected_sort=='price' %}selected{% endif %}>Price</option>
+            <option value="ratingg" {% if selected_sort=='rating' %}selected{% endif %}>Rating</option>
+
         </select>
     </div>
 </div>
 
 <div class="product-grid">
     {% for product in products %}
-<div class="product-card">
-<a href="{{ url_for('product_detail', product_id=product.id) }}">
-<div class="product-image-wrap">
-<img src="{{ url_for('static', filename='img/' + product.image) }}" alt="{{ product.name }}" class="product-image">
-</div>
-<h3 class="product-title">{{ product.title }}</h3>
-</a>
-<p class="product-price">
+
+    <div class="product-card">
+        <a href="{{ url_for('product_detail', product_id=product.id) }}">
+            <div class="product-image-wrap">
+                <img src="{{ url_for('static', filename='img/' + product.image) }}" alt="{{ product.name }}"
+                    class="product-image">
+            </div>
+            <h3 class="product-title">{{ product.title }}</h3>
+        </a>
+        <p class="product-price">
+
             Rs. {{ product.price }}
             {% if product.on_sale %}
 <span class="savings-badge">You save Rs. {{ savings_amount(product) }}</span>
@@ -46,9 +54,11 @@
 </p>
 <p class="product-rating">Rating: {{ product.rating }} / 5</p>
         {% if product.stock > 0 %}
-<span class="badge in-stock">In Stock</span>
+
+        <span class="badge in-stock">In Stock</span>
         {% else %}
-<span class="badge out-of-stok">Out of Stock</span>
+        <span class="badge out-of-stok">Out of Stock</span>
+
         {% endif %}
         {% if is_low_stock(product) %}
 <span class="badge low-stock">Only {{ product.stock }} left!</span>
@@ -64,12 +74,16 @@
 
 <div class="pagination">
     {% if page > 1 %}
-<a href="{{ url_for('index', page=page - 1, sort=selected_sort, category=selected_category) }}" class="page-link">&laquo; Previous</a>
+
+    <a href="{{ url_for('index', page=page-1, sort=selected_sort, category=selected_category) }}"
+        class="page-link">&laquo; Previous</a>
     {% endif %}
-<span class="page-info">Page {{ page }} of {{ total_pages }}</span>
-    {% if page < total_pages %}
-<a href="{{ url_for('index', page=page + 1, sort=selected_sort, category=selected_category) }}" class="page-link">Next &raquo;</a>
-    {% endif %}
+    <span class="page-info">Page {{ page }} of {{ total_pages }}</span>
+    {% if page < total_pages %} <a
+        href="{{ url_for('index', page=page + 1, sort=selected_sort, category=selected_category) }}" class="page-link">
+        Next &raquo;</a>
+        {% endif %}
+
 </div>
 
 {% if recently_viewed %}
