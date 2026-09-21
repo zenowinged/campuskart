@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Search Results - CampusCart{% endblock %}
 {% block content %}
+{% if query %}
 <h1>Results for: {{ query }}</h1>
+{% endif %}
 
 {% if results|length == 0 %}
 <p class="empty-state">No products found. Try a different search term.</p>
